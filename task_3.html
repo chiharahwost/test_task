@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<link href='https://fonts.googleapis.com/css?family=Roboto&subset=latin,cyrillic-ext,latin-ext,cyrillic' rel='stylesheet' type='text/css'>
+	</head>
+	<style>
+		body {
+			font-family: 'Roboto', sans-serif;
+		}
+
+		.wrapper {
+			width:1024px;
+			margin: 0 auto;
+		}
+
+	</style>
+	
+	<body>
+		<div class="wrapper">
+			<section class="text">
+				<h2>Задание 3</h2>
+				<p>
+					Финишная прямая. Нужно написать метод массива, который оставляет в массиве только уникальные элементы.<br>
+					arr.unic(); ['1', '2', '1', 'js', 'css', 'js'] --> ['1', '2', 'js', 'css'] ( ಥ ʖ̯ ಥ)
+				</p>
+				<p id="sort"></p>
+				<p id="unic"></p>
+			</section>
+		</div>
+	</body>
+
+	<script>
+	// Метод на случай, если порядок вывода не важен
+		Array.prototype.unic = function() {
+		    this.sort();
+		    var newArray = [];
+	        for (var i = 0; i <= this.length; i++ ){
+	          if (this[i] !== this[i+1]) {
+	               newArray.push(this[i]);
+	          }
+	    	}
+	 		return newArray;
+		};
+	// Метод на случай, если порядок вывода важен
+		Array.prototype.unic1 = function() {
+    		var newArray = [];
+	        for (var i = 0; i < this.length; i++) {
+	          if (newArray.indexOf(this[i]) === -1) 
+	               newArray.push(this[i]);
+	        }
+            return newArray;
+       }    
+		var arr = ['1', '2', '1', 'js', 'css', 'js'],
+			arr1 = ['1', '2', '1', 'js', 'css', 'js'];
+		var sort = arr.unic();
+		var unic = arr1.unic1();
+		document.getElementById('sort').innerHTML = sort;
+		document.getElementById('unic').innerHTML = unic;
+	</script>
+</html>
+
+
